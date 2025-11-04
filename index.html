@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>dinaxnails — Neutral glam, clean sets.</title>
+  <link rel="stylesheet" href="./styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="container header">
+    <div id="brand" class="brand" title="dinaxnails">dinaxnails</div>
+    <nav class="topnav">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#policies">Policies</a>
+      <span class="pill">Book</span>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Neutral glam, clean sets.</h1>
+      <p>Transparent pricing. Real-time slots. Dina confirms before anything hits the calendar.</p>
+    </section>
+
+    <section id="services" class="cards-3">
+      <article class="card"><h3>Acrylic Sets</h3><div id="service-acrylic" class="list"></div></article>
+      <article class="card"><h3>Builder Gel</h3><div id="service-builder" class="list"></div></article>
+      <article class="card"><h3>Extras</h3><div id="service-extras" class="list"></div></article>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <h3>Gallery</h3>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+
+    <section class="booking">
+      <h3>Book an Appointment</h3>
+      <p class="muted">Pick a service, select a date, choose a time. Dina reviews and confirms your request.</p>
+
+      <form id="bookingForm" class="form">
+        <div class="grid-2">
+          <label>Full Name<input name="name" required placeholder="Your name"/></label>
+          <label>Phone<input name="phone" required placeholder="(555) 555-5555"/></label>
+        </div>
+
+        <label>Instagram Handle<input name="instagram" placeholder="@yourhandle"/></label>
+
+        <div class="grid-2">
+          <label>Service<select id="serviceSelect" name="service" required></select></label>
+          <div class="soakoff">
+            <span>Soak Off</span>
+            <label class="switch">
+              <input id="soakToggle" type="checkbox"><span class="slider"></span>
+            </label>
+            <small class="muted">+$10 • +15 min • must be selected in advance</small>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <label>Date<input id="dateInput" name="date" type="date" required/></label>
+          <label>Base Price<input id="basePrice" readonly value="$0"/></label>
+        </div>
+
+        <label>Available times
+          <div class="row">
+            <select id="timeSelect" required>
+              <option value="">Select a service and date, then click Refresh.</option>
+            </select>
+            <button id="refreshBtn" type="button" class="btn">Refresh</button>
+          </div>
+        </label>
+
+        <label>Notes (inspo links, allergies)
+          <textarea id="notes" rows="3" placeholder="Paste IG/TikTok links or notes"></textarea>
+        </label>
+
+        <div class="grid-2">
+          <button class="btn-primary" type="submit">Request this time</button>
+          <div class="muted" id="statusLine">Nothing is booked until Dina approves.</div>
+        </div>
+      </form>
+    </section>
+
+    <section id="policies" class="policies">
+      <h3>Policies</h3>
+      <ul>
+        <li>Deposit holds your spot (sent after approval).</li>
+        <li>24-hour reschedule window; 10-minute grace period.</li>
+        <li>Soak Off must be selected during booking (+ adds 15 minutes).</li>
+        <li>Please arrive with bare nails unless you booked removal.</li>
+      </ul>
+    </section>
+
+    <footer class="muted tiny">© <span id="year"></span> dinaxnails • San Diego • instagram</footer>
+  </main>
+
+  <div id="pinModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Admin PIN</h3>
+      <input id="pinInput" placeholder="4-digit PIN" maxlength="4">
+      <div class="row">
+        <button id="pinCancel" class="btn">Cancel</button>
+        <button id="pinOK" class="btn-primary">Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Your deployed Apps Script Web App URL:
+    window.GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxmKNz6LXAp_whU-m7lnMQki3gLvkdB8HCxx8bpA2UK3NZ4m5dX6Rlyu67FXKmZPvxd/exec";
+  </script>
+  <script src="./app.js"></script>
+</body>
+</html>
