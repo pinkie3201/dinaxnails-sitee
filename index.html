@@ -1,115 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>dinaxnails — Neutral glam, clean sets.</title>
-  <link rel="stylesheet" href="./styles.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>dinaxnails — Neutral glam, clean sets.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--blush:#f6d7d9;--mocha:#6b4f3f;--cream:#f8f4f2;--ink:#3b3b3b;--line:#e8e0db;--radius:16px}
+*{box-sizing:border-box}html,body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--cream)}
+.container{max-width:960px;margin:0 auto;padding:16px}
+.header{display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:600;font-size:18px;cursor:pointer;user-select:none}
+.topnav a,.topnav span{margin-left:12px;text-decoration:none;color:var(--ink);font-size:14px}
+.pill{background:var(--blush);padding:6px 10px;border-radius:999px}
+.hero h1{margin:8px 0 4px}
+.muted{color:#7a6f67}.tiny{font-size:12px}
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.list .item{border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin:8px 0;background:#fff}
+.list .label{font-weight:500}
+.gallery{margin-top:16px}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.gallery-grid img{width:100%;height:160px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.booking{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.form label{display:block;margin:10px 0}
+.form input,.form select,.form textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:999px;cursor:pointer}
+.btn-primary{background:var(--mocha);color:#fff;border:none;padding:10px 14px;border-radius:999px;cursor:pointer}
+.policies ul{padding-left:20px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
+.modal.hidden{display:none}
+.modal-content{background:#fff;padding:20px;border-radius:16px;min-width:280px}
+.switch{position:relative;display:inline-block;width:46px;height:26px;margin:0 8px}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;border-radius:999px;background:#ddd;transition:.2s}
+.slider:before{position:absolute;content:"";height:20px;width:20px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.2s;border:1px solid var(--line)}
+input:checked + .slider{background:var(--blush)}input:checked + .slider:before{transform:translateX(20px)}
+@media (max-width:840px){.cards-3{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
 </head>
 <body>
-  <header class="container header">
-    <div id="brand" class="brand" title="dinaxnails">dinaxnails</div>
-    <nav class="topnav">
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#policies">Policies</a>
-      <span class="pill">Book</span>
-    </nav>
-  </header>
+<header class="container header">
+  <div id="brand" class="brand" title="dinaxnails">dinaxnails</div>
+  <nav class="topnav"><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#policies">Policies</a><span class="pill">Book</span></nav>
+</header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Neutral glam, clean sets.</h1>
-      <p>Transparent pricing. Real-time slots. Dina confirms before anything hits the calendar.</p>
-    </section>
+<main class="container">
+  <section class="hero">
+    <h1>Neutral glam, clean sets.</h1>
+    <p>Transparent pricing. Real-time slots. Dina confirms before anything hits the calendar.</p>
+  </section>
 
-    <section id="services" class="cards-3">
-      <article class="card"><h3>Acrylic Sets</h3><div id="service-acrylic" class="list"></div></article>
-      <article class="card"><h3>Builder Gel</h3><div id="service-builder" class="list"></div></article>
-      <article class="card"><h3>Extras</h3><div id="service-extras" class="list"></div></article>
-    </section>
+  <section id="services" class="cards-3">
+    <article class="card"><h3>Acrylic Sets</h3><div id="service-acrylic" class="list"></div></article>
+    <article class="card"><h3>Builder Gel</h3><div id="service-builder" class="list"></div></article>
+    <article class="card"><h3>Extras</h3><div id="service-extras" class="list"></div></article>
+  </section>
 
-    <section id="gallery" class="gallery">
-      <h3>Gallery</h3>
-      <div id="galleryGrid" class="gallery-grid"></div>
-    </section>
+  <section id="gallery" class="gallery"><h3>Gallery</h3><div id="galleryGrid" class="gallery-grid"></div></section>
 
-    <section class="booking">
-      <h3>Book an Appointment</h3>
-      <p class="muted">Pick a service, select a date, choose a time. Dina reviews and confirms your request.</p>
-
-      <form id="bookingForm" class="form">
-        <div class="grid-2">
-          <label>Full Name<input name="name" required placeholder="Your name"/></label>
-          <label>Phone<input name="phone" required placeholder="(555) 555-5555"/></label>
-        </div>
-
-        <label>Instagram Handle<input name="instagram" placeholder="@yourhandle"/></label>
-
-        <div class="grid-2">
-          <label>Service<select id="serviceSelect" name="service" required></select></label>
-          <div class="soakoff">
-            <span>Soak Off</span>
-            <label class="switch">
-              <input id="soakToggle" type="checkbox"><span class="slider"></span>
-            </label>
-            <small class="muted">+$10 • +15 min • must be selected in advance</small>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <label>Date<input id="dateInput" name="date" type="date" required/></label>
-          <label>Base Price<input id="basePrice" readonly value="$0"/></label>
-        </div>
-
-        <label>Available times
-          <div class="row">
-            <select id="timeSelect" required>
-              <option value="">Select a service and date, then click Refresh.</option>
-            </select>
-            <button id="refreshBtn" type="button" class="btn">Refresh</button>
-          </div>
-        </label>
-
-        <label>Notes (inspo links, allergies)
-          <textarea id="notes" rows="3" placeholder="Paste IG/TikTok links or notes"></textarea>
-        </label>
-
-        <div class="grid-2">
-          <button class="btn-primary" type="submit">Request this time</button>
-          <div class="muted" id="statusLine">Nothing is booked until Dina approves.</div>
-        </div>
-      </form>
-    </section>
-
-    <section id="policies" class="policies">
-      <h3>Policies</h3>
-      <ul>
-        <li>Deposit holds your spot (sent after approval).</li>
-        <li>24-hour reschedule window; 10-minute grace period.</li>
-        <li>Soak Off must be selected during booking (+ adds 15 minutes).</li>
-        <li>Please arrive with bare nails unless you booked removal.</li>
-      </ul>
-    </section>
-
-    <footer class="muted tiny">© <span id="year"></span> dinaxnails • San Diego • instagram</footer>
-  </main>
-
-  <div id="pinModal" class="modal hidden">
-    <div class="modal-content">
-      <h3>Admin PIN</h3>
-      <input id="pinInput" placeholder="4-digit PIN" maxlength="4">
-      <div class="row">
-        <button id="pinCancel" class="btn">Cancel</button>
-        <button id="pinOK" class="btn-primary">Enter</button>
+  <section class="booking">
+    <h3>Book an Appointment</h3>
+    <p class="muted">Pick a service, select a date, choose a time. Dina reviews and confirms your request.</p>
+    <form id="bookingForm" class="form">
+      <div class="grid-2">
+        <label>Full Name<input name="name" required placeholder="Your name"/></label>
+        <label>Phone<input name="phone" required placeholder="(555) 555-5555"/></label>
       </div>
-    </div>
-  </div>
+      <label>Instagram Handle<input name="instagram" placeholder="@yourhandle"/></label>
+      <div class="grid-2">
+        <label>Service<select id="serviceSelect" required></select></label>
+        <div class="soakoff"><span>Soak Off</span>
+          <label class="switch"><input id="soakToggle" type="checkbox"><span class="slider"></span></label>
+          <small class="muted">+$10 • +15 min • must be selected in advance</small>
+        </div>
+      </div>
+      <div class="grid-2">
+        <label>Date<input id="dateInput" type="date" required/></label>
+        <label>Base Price<input id="basePrice" readonly value="$0"/></label>
+      </div>
+      <label>Available times
+        <div class="row">
+          <select id="timeSelect" required><option value="">Select a service and date, then click Refresh.</option></select>
+          <button id="refreshBtn" type="button" class="btn">Refresh</button>
+        </div>
+      </label>
+      <label>Notes (inspo links, allergies)<textarea id="notes" rows="3" placeholder="Paste IG/TikTok links or notes"></textarea></label>
+      <div class="grid-2"><button class="btn-primary" type="submit">Request this time</button><div class="muted" id="statusLine">Nothing is booked until Dina approves.</div></div>
+    </form>
+  </section>
 
-  <script>
-    // Your deployed Apps Script Web App URL:
-    window.GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxmKNz6LXAp_whU-m7lnMQki3gLvkdB8HCxx8bpA2UK3NZ4m5dX6Rlyu67FXKmZPvxd/exec";
-  </script>
-  <script src="./app.js"></script>
+  <section id="policies" class="policies">
+    <h3>Policies</h3>
+    <ul>
+      <li>Deposit holds your spot (sent after approval).</li>
+      <li>24-hour reschedule window; 10-minute grace period.</li>
+      <li>Soak Off must be selected during booking (+ adds 15 minutes).</li>
+      <li>Please arrive with bare nails unless you booked removal.</li>
+    </ul>
+  </section>
+
+  <footer class="muted tiny">© <span id="year"></span> dinaxnails • San Diego • instagram</footer>
+</main>
+
+<!-- Hidden admin unlock -->
+<div id="pinModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Admin PIN</h3>
+    <input id="pinInput" placeholder="4-digit PIN" maxlength="4">
+    <div class="row"><button id="pinCancel" class="btn">Cancel</button><button id="pinOK" class="btn-primary">Enter</button></div>
+  </div>
+</div>
+
+<script>
+const GAS = "https://script.google.com/macros/s/AKfycbxmKNz6LXAp_whU-m7lnMQki3gLvkdB8HCxx8bpA2UK3NZ4m5dX6Rlyu67FXKmZPvxd/exec";
+const $=(q,el=document)=>el.querySelector(q);
+const fmt=n=>`$${Number(n).toFixed(0)}`;
+
+let settings={services:[{group:"Acrylic",name:"Short Full Set",price:45},{group:"Acrylic",name:"Medium Full Set",price:50},{group:"Acrylic",name:"Long Full Set",price:55},{group:"Builder",name:"Short — Soft Gel",price:50},{group:"Builder",name:"Medium — Soft Gel",price:55},{group:"Builder",name:"Long — Soft Gel",price:60}],extras:[{key:"Soak Off",price:10}]};
+let base=0;
+
+function renderServices(){
+  const ac=settings.services.filter(s=>s.group==="Acrylic");
+  const bu=settings.services.filter(s=>s.group==="Builder");
+  $("#service-acrylic").innerHTML=ac.map(s=>`<div class="item"><div class="label">${s.name} — ${fmt(s.price)}</div></div>`).join("");
+  $("#service-builder").innerHTML=bu.map(s=>`<div class="item"><div class="label">${s.name} — ${fmt(s.price)}</div></div>`).join("");
+  $("#serviceSelect").innerHTML=`<option value="">Select a service…</option>`+settings.services.map((s,i)=>`<option value="${i}">${s.group} • ${s.name} — ${fmt(s.price)}</option>`).join("");
+}
+
+function updatePrice(){ const i=$("#serviceSelect").value; base=i===""?0:settings.services[+i].price; $("#basePrice").value=fmt(base+($("#soakToggle").checked?10:0)); }
+
+async function gget(params){ const r=await fetch(`${GAS}?${new URLSearchParams(params)}`); return r.json(); }
+async function gpost(action,body){ const r=await fetch(`${GAS}?action=${encodeURIComponent(action)}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}); return r.json(); }
+
+async function loadSettings(){ try{ const res=await gget({action:"get_settings"}); if(res.ok){ settings=res.settings; } }catch{} renderServices(); }
+async function loadGallery(){ try{ const res=await gget({action:"get_gallery"}); if(res.ok) $("#galleryGrid").innerHTML=res.images.map(i=>`<img src="${i.publicUrl}" alt="${i.caption||'nails'}">`).join(""); }catch{} }
+
+async function refreshSlots(){
+  const date=$("#dateInput").value, i=$("#serviceSelect").value;
+  if(!date||i===""){ alert("Select service and date first."); return; }
+  $("#timeSelect").innerHTML=`<option>Loading…</option>`;
+  const res=await gget({action:"get_availability",from:date,to:date});
+  if(!res.ok){ $("#timeSelect").innerHTML=`<option>Error loading times</option>`; return; }
+  const opts=res.slots.map(s=>`<option value="${s.id}|${s.start}|${s.end}">${new Date(s.start).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})} – ${new Date(s.end).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}</option>`);
+  $("#timeSelect").innerHTML=opts.length?`<option value="">Select a time…</option>`+opts.join(""):`<option>No times on this day.</option>`;
+}
+
+async function submitBooking(e){
+  e.preventDefault();
+  const name=$("input[name=name]").value.trim();
+  const phone=$("input[name=phone]").value.trim();
+  const instagram=$("input[name=instagram]").value.trim();
+  const notes=$("#notes").value.trim();
+  const i=$("#serviceSelect").value, soak=$("#soakToggle").checked, time=$("#timeSelect").value, date=$("#dateInput").value;
+  if(!name||!phone||!i||!time){ alert("Please complete the form."); return; }
+  const [slotId,start,end]=time.split("|");
+  const svc=settings.services[+i], total=svc.price+(soak?10:0);
+  $("#statusLine").textContent="Sending request…";
+  const res=await gpost("submit_request",{name,phone,instagram,service:`${svc.group} — ${svc.name}`,basePrice:svc.price,soakOff:soak,total,date,start,end,notes,slotId});
+  $("#statusLine").textContent=res.ok?"Request sent. Status: Pending approval.":"Error. Please try again.";
+  if(res.ok){ e.target.reset(); updatePrice(); }
+}
+
+function openAdmin(){
+  const m=$("#pinModal"); m.classList.remove("hidden"); $("#pinCancel").onclick=()=>m.classList.add("hidden");
+  $("#pinOK").onclick=()=>{ const pin=$("#pinInput").value.trim(); if(pin.length!==4){ alert("Enter 4 digits"); return; } location.href=`./admin.html?pin=${encodeURIComponent(pin)}`; };
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  $("#year").textContent=new Date().getFullYear();
+  $("#brand").addEventListener("click", openAdmin);
+  $("#serviceSelect").addEventListener("change", updatePrice);
+  $("#soakToggle").addEventListener("change", updatePrice);
+  $("#refreshBtn").addEventListener("click", refreshSlots);
+  $("#bookingForm").addEventListener("submit", submitBooking);
+  loadSettings(); loadGallery();
+});
+</script>
 </body>
 </html>
