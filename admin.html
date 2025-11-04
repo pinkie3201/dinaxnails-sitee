@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>dinaxnails — Admin</title>
+  <link rel="stylesheet" href="./styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="container header">
+    <div class="brand">dinaxnails</div>
+    <nav class="topnav"><span>Admin</span></nav>
+  </header>
+
+  <main class="container">
+    <section class="tabs">
+      <button class="tab active" data-tab="requests">Requests</button>
+      <button class="tab" data-tab="gallery">Gallery</button>
+      <button class="tab" data-tab="settings">Copy & Prices</button>
+    </section>
+
+    <section id="requests" class="panel active">
+      <div class="row">
+        <input id="adminPin" placeholder="Enter PIN" maxlength="4"/>
+        <button id="loadRequests" class="btn">Load</button>
+      </div>
+      <div id="requestsTable" class="table"></div>
+    </section>
+
+    <section id="gallery" class="panel">
+      <div class="row">
+        <input id="imgCaption" placeholder="Caption (optional)"/>
+        <input id="imgFile" type="file" accept="image/*"/>
+        <input id="adminPinGallery" placeholder="PIN" maxlength="4"/>
+        <button id="uploadImg" class="btn">Upload</button>
+      </div>
+      <div id="galleryAdminGrid" class="gallery-grid"></div>
+    </section>
+
+    <section id="settings" class="panel">
+      <div class="row">
+        <textarea id="settingsJson" rows="14" class="mono" placeholder='{"services":[...],"theme":{...}}'></textarea>
+      </div>
+      <div class="row">
+        <input id="adminPinSettings" placeholder="PIN" maxlength="4"/>
+        <button id="saveSettings" class="btn-primary">Save Settings</button>
+      </div>
+      <p class="muted tiny">Edit JSON carefully. Prices are dollars.</p>
+    </section>
+  </main>
+
+  <script>
+    window.GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxmKNz6LXAp_whU-m7lnMQki3gLvkdB8HCxx8bpA2UK3NZ4m5dX6Rlyu67FXKmZPvxd/exec";
+  </script>
+  <script src="./admin.js"></script>
+</body>
+</html>
